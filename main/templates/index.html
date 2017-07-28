@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VIEW</title>
+</head>
+<body>
+ {% for channel in channels %}
+ <p>{{channel.name}} 1</p>
+    {% for campaign in channel.get_campaign %}
+        lll
+        <p>{{channel.name}}</p>
+        <p>{{campaign.name}}</p>
+
+     {% endfor %}
+ {% endfor %}
+
+
+</body>
+</html>

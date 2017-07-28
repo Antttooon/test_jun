@@ -1,0 +1,11 @@
+
+
+    {% for channel in object_list %}
+    <li>
+        <a href="{% url 'channel_detail' channel.id %}">{{channel.name}}</a>
+        <a href="{% url 'channel_delete' channel.id %}">Удалить</a>
+        <a href="{% url 'channel_update' channel.id %}">Редактировать</a>
+    </li>
+    {% endfor %}
+    <a href="{% url 'chanel_create' %}">Добавить</a>
+
