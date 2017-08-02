@@ -25,7 +25,7 @@ class ChannelListView(ListView):
 class ChannelCreateView(CreateView):
     model = Channel
     template_name = 'create_channel.html'
-    success_url = '/channel'
+    success_url = '/chnl'
     fields = ('__all__')
     slug_url_kwarg = 'slug'
 
@@ -33,22 +33,29 @@ class ChannelCreateView(CreateView):
 class ChannelUpdateView(UpdateView):
     model = Channel
     template_name = 'create_channel.html'
-    success_url = '/channel'
+    success_url = '/chnl'
     fields = ('__all__')
     slug_url_kwarg = 'slug'
 
 
 class ChannelDeleteView(DeleteView):
     model = Channel
-    success_url = '/channel/'
+    success_url = '/chnl/'
     template_name = 'confirm_delete.html'
 
 
 class ChannelDetailView(DetailView):
     model = Channel
-    success_url = '/channel/'
+    success_url = '/chnl/'
     template_name = 'detail.html'
 
+    # def get_queryset(self):
+    #     pk = self.kwargs.get(self.pk_url_kwarg)
+    #     qs = Channel.objects.filter(pk=pk)
+    #     return qs
+
+
+#
 
 # Campagn CRUD operations with CBV
 
@@ -57,15 +64,8 @@ class CampaignListView(ListView):
     template_name = 'camp_list.html'
 
 
-
 class CampaignCreateView(CreateView):
     model = Campaign
-    # pk = Campaign.objects.get()
-    print()
-    # channel = Channel.objects.all()
-    # print(channel)
-    # bid_channel = channel.bid_types
-    # bid_channel == Campaign.bid_type
     template_name = 'create_camp.html'
     success_url = '/camp/'
     fields = ('__all__')
@@ -92,6 +92,7 @@ class CampaignDetailView(DetailView):
     success_url = '/camp/'
     template_name = 'camp_detail.html'
 
+
 # API REST
 
 class ChannelViewSet(viewsets.ModelViewSet):
@@ -102,5 +103,3 @@ class ChannelViewSet(viewsets.ModelViewSet):
 class CampaignViewSet(viewsets.ModelViewSet):
     queryset = Campaign.objects.all()
     serializer_class = CampaignSerializer
-
-
